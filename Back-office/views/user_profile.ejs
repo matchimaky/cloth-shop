@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link href="back_office.css" rel="stylesheet" />
+    <link href="back_office_mobile.css" rel="stylesheet" />
+ 
+ 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<style>
+        body {
+            display: flex; 
+            flex-direction: column;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .row {
+            display: flex; 
+            justify-content: space-between;
+            align-items: center;
+            margin-left: 5%;
+            margin-top: 3%;
+        }
+
+        .col {
+            flex: 1;
+        }
+
+        .text-end {
+            text-align: end;
+            margin-right: 5%;
+        }
+
+        h2 {
+            margin-top: 70px;
+            text-align: center;
+            font-family: 'Inter',sans-serif,bold;
+            font-size: 45px;
+            margin-bottom: 40px;
+        }
+
+        .form-control {
+            width: 300px; 
+            margin: -25px 0 0 550px;
+            margin-right: 50%;
+        }
+
+        p {
+            margin-left: 500px; 
+            color: #b0adad;
+           
+        }
+
+        .row{
+            margin-top: 3rem;
+        }
+
+        .btn{
+            margin-left: 50%;
+            font-family: 'Inter',sans-serif,bold;
+            font-weight: 50;
+        }
+
+        .login-wrapper p{
+        margin-left: 18%;
+       
+        }
+        .login-wrapper input{
+        margin-left: 25%;
+        margin-top: 0.5rem;
+        width: 80%;
+        
+        }
+        .login-wrapper{
+            margin-top: -2rem;
+        }
+        h2{
+        font-size: 30px;
+        font-weight: bold;
+        margin-bottom: 50px;
+        font-family: 'Inter', sans-serif;
+        margin-bottom: -1rem;
+        }
+    
+        .btn.btn-lg.btn-primary a{
+            color: white;
+            text-decoration: none;
+        }
+        #footer {
+    background-color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 20px;
+}
+     
+        @media (max-width: 576px){
+            p, .form-control{
+               margin-left: 15%;
+                
+            }
+    
+            
+            h2{
+                margin-top: 3rem;
+                margin-bottom: 1rem;
+           
+            }
+         
+            .go-back{
+                position: absolute;
+                margin-top: 7.5rem;
+                margin-bottom: 1rem;
+                margin-right: -7rem;
+            }
+            .logout{
+                position: absolute;
+                margin-top: 7.5rem;
+                margin-bottom: 1rem;
+                margin-left: -4rem;
+            }
+            .btn.btn-lg.btn-primary{
+                    margin-top: 4rem;
+                   
+                    left: 0;
+            }
+            .login-wrapper{
+                text-align: center;
+                margin-top: 1rem;
+            }
+            .login-wrapper input {
+        
+                width: 100%;
+        
+        }
+        .login-wrapper p, .login-wrapper input {
+        margin-left: 10%;
+        
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="container col-lg-6 col-md-9 col-sm-9">
+    <div class="row">
+        <div class="col">
+            <a href="back_office.html" class="go-back">go back</a>
+        </div>
+        <div class="col text-end">
+            <a href="login_page.html" class="logout">log out</a>
+        </div>
+    </div>
+    <h2>BUSINESS ID</h2>
+    <div class="login-wrapper col-sm-9">
+        <div class="mb-3">
+            <p>Name</p>
+            <input type="text" name="name" id="name" class="form-control" placeholder="<%= user.firstname %>">
+
+        </div>
+        <div class="mb-3">
+            <p class="user-text">Email address</p>
+            <input type="firstname" name="firstname" id="email-adress" class="form-control" placeholder="<%= user.email %>" >
+        </div>
+        <div class="mb-3">
+            <p class="user-text">Password</p>
+            <input type="text" name="password" id="password" class="form-control" placeholder="<%= user.password %>">
+        </div>
+        
+        <button class="btn btn-lg btn-primary "> <a href="back_office.html" type="submit">GO BACK</a></button>
+       
+      
+    </div>
+    <footer id="footer">
+        <div class="container">
+            <ul>
+                <li><i>© 2024, myshop</i></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/js/bootstrap.min.js"></script>
+    <script>
+       
+        var userPassword = document.getElementById('password').getAttribute('placeholder');
+        var hiddenPassword = '*'.repeat(userPassword.length);
+        document.getElementById('password').setAttribute('value', hiddenPassword);
+    </script>
+</body>
+</html>

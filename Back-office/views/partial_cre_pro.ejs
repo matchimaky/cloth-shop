@@ -1,0 +1,12 @@
+<div class="mb-3">
+    <label for="category" class="form-label">Category</label>
+    <div class="input-with-icon">
+      <select class="cate-name select nav-link nav-item dropdown" id="category" name="category_name" placeholder="Please select">
+        <% categories.forEach(category => { %>
+          <option value="<%= category %>"><%= category %></option>
+        <% }); %>
+      </select>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </div>
+  

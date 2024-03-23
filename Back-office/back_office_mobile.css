@@ -1,0 +1,135 @@
+/* login */
+.login-title{
+    margin-bottom: 1rem;
+}
+
+.register-title{
+    margin-bottom: 1rem;
+}
+.login-wrapper {
+    padding: 1rem;
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .login-title{
+       
+        margin-top: -3rem;
+        margin-bottom: -2rem;
+    }
+
+    .register-title{
+        margin-top: 5rem;
+        margin-bottom: -1rem;
+    }
+
+
+    .login-wrapper {
+        padding: 1rem;
+    }
+   
+    .btn.btn-primary {
+        position: relative;
+        bottom: 3rem; 
+        left: 7.5rem;
+        width: 120px;
+        font-size: 16px;
+         
+    }
+
+  
+   .back-to-login{
+    font-size: 18px;
+   
+   }
+    .created-an-account{
+        font-size: 18px;
+        margin-right: -1rem;
+    }
+
+    #password{
+        margin-top: 2rem;
+        width: 70%;
+        margin-bottom: 4rem;
+    }
+
+    .container-fluid .navtop{
+        background-color: white;
+    }
+
+    .navbar-brand:hover  {
+        background-color: white;
+      }
+      
+      .navbar-brand {
+        margin-left: 40%;
+       width: 50%;
+       margin-top: 2rem;
+    
+     
+    }
+    .navbar-toggler{
+       margin-left: 80%;
+       margin-top: -3.5rem;
+    }
+
+      #sidebar {
+        display:none;
+    }
+
+    .homepage-text{
+        font-size: 3rem;
+    }
+    .sidebar1 {padding-top: 15px;}
+    .sidebar1 a {font-size: 18px;}
+   
+    .sidebar2 {padding-top: 15px;}
+    .sidebar2 a {font-size: 18px;}
+  
+    #homepage-text{
+    text-align: left;
+
+  }
+  .add-product-btn{
+    width: 125px;
+    font-size: 13px;
+    margin-bottom: 2rem;
+  }
+  .filter-btn{
+    width: 50px;
+    font-size: 15px;
+    margin-bottom: 2rem;
+ 
+  }
+  .table-product, .table-cate, .table-sales-history {
+    width: 50%;
+    border-collapse: collapse;
+    margin-top: 100px;
+    text-align: center;
+}
+
+  h1{
+    font-size: 15px;
+  }
+}
+
+
+@media (min-width: 1px) {
+    .login-title{
+        margin-top: -3rem;
+        margin-bottom: -2rem;
+    }
+
+
+    .login-wrapper {
+        padding: 5rem;
+    }
+}
+
+/* back_office */
+

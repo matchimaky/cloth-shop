@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales History</title>
+  <link href="back_office.css" rel="stylesheet" />
+  <link href="back_office_mobile.css" rel="stylesheet" />
+ 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+      <style>
+             
+#back-content {
+margin-top: 70px; 
+}
+    @media (max-width: 992px) {
+        .sidebar {
+            width: 250px;
+        }
+    }
+    
+    @media (min-width: 992px) {
+      .navbar {
+          position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: top 0.5s ease-in-out, width 0.5s ease-in-out;
+        }
+        
+        .sidebar {
+            position: fixed;
+            top: 70px;
+            left:0;
+            bottom: 0;
+            z-index: 1000;
+            overflow-y: auto; 
+            margin: 0;
+            padding: 0;
+            transition: top 0.5s ease-in-out;
+        }
+        .sidebar {
+            width: 280px;
+        }
+    }
+
+    .sidebar.scroll {
+        position: absolute;
+        bottom: 0;
+    }
+          .centered {
+      text-align: center;
+       }
+        .dropdown-menu{
+          background-color: #f5f5f5;
+        }
+        .dropdown-item-sales:hover {
+          background-color: #f5f5f5;
+        }
+        @media (max-width: 576px) {
+          h1{
+            margin-bottom: -3.5rem;
+          }
+          .filter-btn{
+          position: absolute;
+          margin-top: -50px;
+          right: 0;
+          margin-right: 3rem;
+              
+  }
+
+          .price-his, .number{
+            display: none;
+          }
+          .table-sales-history{
+            width: 80%;
+          }
+        }
+      </style>
+  <style>
+   
+  </style>
+</head>
+<body>
+  <div class="container-fluid ">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid navtop">
+            
+          <a class="navbar-brand" href="back_office.html">MY SHOP</a>
+
+      <div id="pro-btn">
+      <button class="openbtn d-lg-none" onclick="openNav()">
+        <img class="profile-toggle-icon" src="Unknown.jpeg" alt="Profile Picture" />
+      </button>
+    </div>
+
+      <div id="mySidebar" class="sidebar1">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a class="dropdown-item" href="/user_profile"> User Profile</a>
+        <hr class="dropdown-divider" />
+        <a class="dropdown-item log" href="login_page.html">Log Out</a>
+        <hr class="dropdown-divider" />
+      </div>
+
+  
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 profile-menu">
+              <li class="nav-item dropdown" >
+                <a
+                  class="nav-link "
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <div class="col profile-pic">
+                    <img src="Unknown.jpeg" alt="Profile Picture" />
+                  </div>
+                  <p class="profile-text">JACQUEMUS</p>
+                  <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul
+                  class="dropdown-menu dropdown-menu-end"
+                  aria-labelledby="navbarDropdown"
+                >
+                  <li>
+                    <a class="dropdown-item" href="/user_profile"> User Profile</a>
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="login_page.html">Log Out</a>
+                  
+                  </li>
+                  
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+  <nav id="sidebar" class="col-md-2 col-lg-2 bg-light">
+
+  <ul class="side-barr nav flex-column">
+    <li class="side-bar products" data-bs-toggle="collapse" data-bs-target="#productsCollapse">
+        <a class="products-topic"> Products <i class="fas fa-chevron-down"></i></a>
+    </li>
+    <div class="collapse" id="productsCollapse">
+        <hr class="dropdown-divider" />
+        <a class="dropdown-item" href="/product"><i class=" "></i>Product</a>
+        <hr class="dropdown-divider" />
+        <a class="dropdown-item" href="/category"><i class=""></i>Category</a>
+    </div>
+    <li><hr class="dropdown-divider" /></li>
+
+    <li class="nav-item">
+        <a class="dropdown-item" href="sales_history.html"><i class=""></i> Sales history</a>
+    </li>
+    <li><hr class="dropdown-divider" /></li>
+</ul>
+</nav>
+
+    <div id="sidebar-btn" class="d-lg-none">
+      <button class="openbtn" onclick="toggleSidebar()"><p>☰</p></button>
+    </div>
+ 
+
+    <div id="mySidebarr" class="sidebar2">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a class="dropdown-item products-topic" data-bs-toggle="collapse" data-bs-target="#productsCollapse"> Products <i class="fas fa-chevron-down" ></i></a>
+        <div class="collapse" id="productsCollapse">
+          <hr class="dropdown-divider" />
+          <a class="dropdown-item" href="/product"><i class=" "></i>Product</a>
+          <hr class="dropdown-divider" />
+          <a class="dropdown-item" href="/category"><i class=""></i>Category</a>
+        </div>
+        <hr class="dropdown-divider" />
+        
+          <a class="dropdown-item sales-h" href="sales_history.html"><i class=""></i> Sales history</a>
+        
+        <hr class="dropdown-divider" />
+      
+    </div>
+ 
+          
+    <div id="back-content">
+        <div class="col-md-10 ms-sm-auto col-lg-10 px-md-4">
+            <div id="sales-page">
+            <h1>Sales History</h1>
+                <button class="filter-btn nav-link nav-item dropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-sliders"></i>Filter
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item-sales" href="/bill_summary"><i class=""></i> bill summary</a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class="dropdown-item-sales" href="/best_seller"><i class=""></i> bestseller</a></li>
+                </ul>
+
+            <table class="table-sales-history">
+                <thead class="sales-th">
+                    <tr>
+                        <th class="centered">ID</th>
+                        <th class="centered">Date</th>
+                        <th class="centered">Product ID</th>
+                        <th class="number centered">Number of Items</th>
+                        <th class="price-his centered">Price</th>
+                    </tr>
+                </thead>
+                <tbody class="sales-tbody">
+                  <% let previousBillId = null; %>
+                  <% let firstRow = true; %>
+                  <% sales.forEach(sale => { %>
+                      <% if (previousBillId !== sale.bill_id) { %>
+                          <% if (!firstRow) { %>
+                              <tr>
+                                  <td colspan="5"><hr class="dropdown-divider" /></td>
+                              </tr>
+                          <% } %>
+                          <tr>
+                              <td class="centered"><%= sale.bill_id %></td>
+                              <td class="centered"><%= sale.bill_date %></td>
+                              <td class="centered"><%= sale.product_id %></td>
+                              <td class="number centered"><%= sale.number_of_items %></td>
+                              <td class="price-his centered"><%= sale.bill_price %></td>
+                          </tr>
+                          <% firstRow = false; %>
+                      <% } else { %>
+                          <tr>
+                              <td colspan="2"></td> 
+                              <td class="centered"><%= sale.product_id %></td>
+                              <td class="number centered"><%= sale.number_of_items %></td>
+                              <td class="price-his centered"><%= sale.bill_price %></td>
+                          </tr>
+                      <% } %>
+                      <% previousBillId = sale.bill_id; %>
+                  <% }); %>
+              </tbody>
+              
+              
+              
+            </table>
+        </div>
+    </div>
+    <footer id="footer">
+      <div class="container">
+          <ul>
+              <li><i>© 2024, myshop</i></li>
+          </ul>
+      </div>
+  </footer>
+        </div>
+       
+    </div>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+      document.querySelectorAll('.navbar-brand, .welcome-title, .welcome-content').forEach(function(el) {
+      el.style.color = "rgba(0, 0, 0, 0.7)"; 
+    });
+  }
+    
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("mySidebarr").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+      document.querySelectorAll('.navbar-brand, .welcome-title, .welcome-content').forEach(function(el) {
+      el.style.color = "#000000"; 
+    });
+  }
+ 
+  function toggleSidebar() {
+    document.getElementById("mySidebarr").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+  }
+  
+
+
+$(function() {
+        var $window = $(window);
+        var $sidebar = $('.sidebar');
+        var $footer = $('#footer');
+
+        $window.on('scroll', function() {
+            if ($window.scrollTop() + $window.height() >= $footer.offset().top) {
+                $sidebar.removeClass('scroll');
+            } else {
+                $sidebar.addClass('scroll');
+            }
+        }).scroll();
+    });
+    </script>
+</body>
+</html>
