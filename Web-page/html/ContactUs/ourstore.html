@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- font google -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+        
+        <!-- Bootstrap CSS -->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"/>
+             
+        <!-- Font Awesom -->
+        <script src="https://kit.fontawesome.com/752c6ea0dd.js" crossorigin="anonymous"></script>
+    <title>Contact Us/our store</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
+ 
+ 
+    <style>
+  
+ 
+.infoshop .map-container {
+    width: 100%;
+    height: 530px;
+    display: flex;
+    justify-content: center;
+}
+.infoshop #map {
+    width: 50%; /* Adjust the width as needed */
+    height: 100%; /* Adjust the height as needed */
+}
+ 
+ 
+ 
+        .infoshop h5{
+            text-align: center;
+            margin-top: 60px;
+        }
+ 
+        .infoshop hr{
+            margin-top: 10px;
+        }
+ 
+        .infoshop ul{
+                list-style-type: none;
+                margin-top: 20px;
+                font-size: 20px;
+                margin-right: 40px;
+                text-align: center;
+            }
+ 
+        @media (max-width: 767px) {
+ 
+            .infoshop .map{
+        width: 100%; /* Set the width to fill the container */
+        height: 100%; /* Adjust height as needed */
+    }
+ 
+    .infoshop p{
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        text-align: left;
+    }
+ 
+    .btn-locate {
+        margin-top: 20px; /* Adjust margin as needed */
+    }
+ 
+            .container {
+                padding: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .contactus h3 {
+                font-size: 20px;
+            }
+        
+            .contactus p {
+                font-size: 16px;
+            }
+        
+            .center-links a {
+                font-size: 16px;
+            }
+ 
+            .infoshop p{
+                font-size: 16px;
+                text-align: left;
+                margin-left: 40px;
+            }
+ 
+            .infoshop .btn-locate button, .infoshop .btn-locate a {
+                width: 200px;
+                font-size: 16px;
+            }
+ 
+            .infoshop .btn-locate a {
+                 font-size: 10px;
+            }
+            .infoshop ul{
+                list-style-type: none;
+                margin-top: 20px;
+                font-size: 14px;
+                margin-left: 60px;
+            }
+ 
+            .infoshop h5{
+                text-align: left;
+                margin-top: 50px;
+                /* margin-left: 55px; */
+                margin-left: 100px;
+            }
+ 
+            .infoshop hr{
+                margin-top: 10px;
+            }
+            #footer {
+    text-align: center;
+}
+ 
+#footer .container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ 
+#footer .container-fluid ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 5px;
+}
+ 
+#footer .conpyright li{
+    font-size: 14px;
+    margin-top: 20px;
+}
+ 
+ 
+        }
+        
+            </style>
+ 
+</head>
+<body>
+    
+   <!-- Navbar with cart and wishlist -->
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/html/Homepage.html">
+      <img src="/images/jacquemus-logos-idHdmUIL-k.png" alt="Logo" width="120" class="navbar-brand element-with-space" href="/html/Homepage.html" >
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <button id="exitFullscreenButton" class="exit-fullscreen-button">&times;</button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Product
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="categoryDropdown">
+                    </ul>
+            </li>
+ 
+            <li class="nav-item">
+                <a class="nav-link" href="/html/ContactUs/contactus.html">contact us</a>
+            </li>
+ 
+            <li class="nav-item">
+                <a class="nav-link" href="/html/Account/login.html">account</a>
+            </li>
+   
+            <li class="nav-item">
+                <a class="d-lg-none nav-link mr-3" href="/wishlist">Favorite</a>
+                <a class="d-none d-lg-inline mr-3 nav-link" href="/wishlist">
+                    <img src="/images/Favorite.png" alt="Favorite Icon" width="45" class="d-inline mr-3 nav-link"></a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="d-lg-none nav-link mr-3" href="/html/CartnWishlist/cart.html">Cart</a>
+                <a class="d-none d-lg-inline mr-3 nav-link" href="/html/CartnWishlist/cart.html">
+                    <img src="/images/shopping-cart 1cart-icon.png" alt="Cart Icon" width="45" class="d-inline mr-3 nav-link"></a>
+            </li>
+        </ul>
+    </div>
+</div>
+</nav>
+ 
+ 
+ 
+<div class="contactus">
+    <h3>Contact Us</h3><hr>
+    <p>we're happy to help with any questions you <br>may have regarding our products and <br>corporate information </p>
+    <br>
+    <br>
+    </div>
+    <div class="center-links">
+        <a href="/html/ContactUs/contactus1.html">contact us</a>
+        <br>
+        <a href="/html/ContactUs/ourstore.html">our store</a>
+    </div>
+    <div class = "infoshop">
+        <h5>La Boutique Montaigne</h5>
+        <hr>
+        <br>
+        <div class="map-container">
+        <div id="map"></div>
+    </div>
+    <!-- <h4>La Boutique Montaigne</h4> -->
+    <!-- <hr class="line"> -->
+    
+    <ul>
+        <li>58 av. Montaigne, 75008 Paris</li>
+        <li>+33-1-86-47-83-72</li></ul>
+    <p>Opening hours<br>
+        Monday 10am - 7.30pm<br>
+        Tuesday 10am - 7.30pm<br>
+        Wednesday 10am - 7.30pm<br>
+        Thursday 10am - 7.30pm<br>
+        Friday 10am - 7.30pm<br>
+        Saturday 10am - 7.30pm<br>
+        Sunday 12am - 7pm</p>
+        <p>Credits : Pierre Auguste Renoir, La danseuse aux voiles, 1908-1910<br>
+            Courtesy of Gallery Helene Bailly</p>
+            <a href="https://www.google.com/maps?q=48.868242,2.308989" class="btn-locate"><button type="submit" style="background-color: #0C254A;">GET DIRECTIONS</button></a>
+    </div>
+ 
+ 
+    <section id="intro-section">
+        <form action="/sub" method="post">
+        <div class="container-fluid bg-gray">
+        <h4>Newsletter</h4><br>
+        <p>Sign in to receive our lastest news about collection,
+            products, shows and collaborations</p>
+            <div class="email-input-container">
+                <input type="email" name="email" id="email-input" placeholder="Enter your email">
+                <button id="send-button" style="display: none;"><i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+        </form>
+    </section>
+ 
+<footer id="footer">
+    <div class="container-fluid">
+        <div class="left-part">
+            <ul>
+            <li><a class="nav-link" href="/html/Product/productall.html">product</a></li>
+            
+            <li>
+                <a class="nav-link" href="/html/ContactUs/contactus.html">contact us</a>
+            </li>
+ 
+            <li>
+                <a class="nav-link" href="/html/Account/login.html">account</a>
+            </li>
+            </ul>
+        </div>
+        <div class="right-part">
+            <ul>
+                <li><i>follow us</i></li>
+                <li><i class="fab fa-twitter"></i><a class="nav-link" href="https://twitter.com/jacquemus"> jacquemus</a></li>
+                <li><i class="fab fa-instagram"></i><a class="nav-link" href="https://www.instagram.com/jacquemus/">jacquemus</a></li>  
+                <li><i class="fas fa-envelope"></i><a class="nav-link" href="mailto:customercare@jacquemus.com">customercare@jacquemus.com</a></li>
+            </ul>
+        </div>
+        <ul>
+        <li><i>© 2024, JACQUEMUS</i></li>
+        </ul>
+    </div>
+</footer>
+<script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"></script>
+      <script>
+    const emailInput = document.getElementById('email-input');
+const sendButton = document.getElementById('send-button');
+ 
+emailInput.addEventListener('input', function() {
+if (this.value.includes('@')) {
+sendButton.style.display = 'inline-block';
+} else {
+sendButton.style.display = 'none';
+}
+});
+ 
+</script>
+<!-- Cross sign -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const exitFullscreenButton = document.getElementById('exitFullscreenButton');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+ 
+        exitFullscreenButton.style.display = 'none';
+ 
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        navbarToggler.addEventListener('click', function() {
+            if (!navbarCollapse.classList.contains('show')) {
+                exitFullscreenButton.style.display = 'block';
+            } else {
+                exitFullscreenButton.style.display = 'none';
+            }
+        });
+ 
+        exitFullscreenButton.addEventListener('click', function() {
+            navbarCollapse.classList.remove('show');
+            exitFullscreenButton.style.display = 'none';
+        });
+    });
+</script>
+ 
+ 
+<script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+<script>
+    window.onload = function() {
+        L.mapquest.key = 'yrjrgjUNKDj6MQrO4wYojLKs3KUfl2xB';
+ 
+        var map = L.mapquest.map('map', {
+            center: [48.868242, 2.308989], // Paris coordinates
+            layers: L.mapquest.tileLayer('map'),
+            zoom: 12
+        });
+ 
+        map.addControl(L.mapquest.control());
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      fetch('/categories')
+      .then(response => response.json())
+      .then(categories => {
+          const categoryDropdown = document.getElementById('categoryDropdown');
+          categories.forEach(category => {
+              const categoryItem = document.createElement('li');
+              let categoryHTML = ''; // Define categoryHTML here
+              if (category.category_name === 'trousers & shorts' || category.category_name === 'bag' || category.category_name === 'top' || category.category_name === 'shoes') {
+                  // Construct the HTML string for each category item
+                  if (category.category_name === 'top') {
+                      categoryHTML = `<a class="dropdown-item" href="/Top">Top</a>`;
+                  } else if (category.category_name === 'trousers & shorts') {
+                      categoryHTML = `<a class="dropdown-item" href="/Trousersnshorts">Trousers and Shorts</a>`;
+                  } else if (category.category_name === 'bag') {
+                      categoryHTML = `<a class="dropdown-item" href="/Bag">Bag</a>`;
+                  } else if (category.category_name === 'shoes') {
+                      categoryHTML = `<a class="dropdown-item" href="/Shoes">Shoes</a>`;
+                  }
+                  categoryItem.innerHTML = categoryHTML; 
+              } else {
+                  categoryItem.innerHTML = `<a class="dropdown-item" href="/default_category_layout?category_id=${category.category_id}&category_name=${category.category_name}">${category.category_name}</a>`;
+              }
+              categoryDropdown.appendChild(categoryItem); 
+          });
+  
+          const viewAllCategoryItem = document.createElement('li');
+          viewAllCategoryItem.innerHTML = `<a class="dropdown-item" href="/productall">View all</a>`;
+          categoryDropdown.appendChild(viewAllCategoryItem);
+      })
+      .catch(error => console.error('Error fetching categories:', error));
+  });
+  
+  
+</script>
+</body>
+</html>

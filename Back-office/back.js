@@ -267,9 +267,7 @@ const pathModule = require('path');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        const destination = '/newImage';
-        const fullPath = pathModule.join(__dirname, destination);
-        cb(null, fullPath); 
+        cb(null, pathModule.join(__dirname)); 
     },
     filename: (req, file, cb) => {
         cb(null, file.originalname);
@@ -317,10 +315,32 @@ app.post('/', upload.array('product-images', 3), (req, res) => {
                 return res.status(500).json({ error: 'Something went wrong' });
             }
             console.log('Data inserted into database successfully');
+
+            req.files.forEach(file => {
+                const sourcePath = pathModule.join(__dirname, file.originalname);
+                const destination1 = pathModule.join(__dirname, '/newImage', file.originalname);
+                const destination2 = pathModule.join(__dirname, '../Web-page/newImage', file.originalname);
+
+                
+                fs.copyFile(sourcePath, destination1, (err) => {
+                    if (err) {
+                        console.error('Error copying file to destination 1:', err);
+                    }
+                });
+
+               
+                fs.copyFile(sourcePath, destination2, (err) => {
+                    if (err) {
+                        console.error('Error copying file to destination 2:', err);
+                    }
+                });
+            });
+
             res.redirect('/product'); 
         });
     });
 });
+
 
 app.get('/', (req, res) => {
 

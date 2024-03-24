@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- font google -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+        
+        <!-- Bootstrap CSS -->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"/>
+             
+        <!-- Font Awesom -->
+        <script src="https://kit.fontawesome.com/752c6ea0dd.js" crossorigin="anonymous"></script>
+    <title>Product</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <style>
+ 
+ .wishlist-icon {
+           position: absolute;
+           top: 55px;
+           left: 500px;
+           transform: translate(-50%, -50%);
+           opacity: 0;
+           transition: opacity 0.3s ease;
+           z-index: 1; /* Ensure the icon is above the image */
+       }
+       .carousel-item:hover .wishlist-icon {
+           opacity: 1;
+       }
+       
+       .wishlist-icon i {
+           color: white; /* Set the default color of the heart icon */
+           font-size: 30px;
+       }
+       
+       .wishlist-icon i.clicked {
+           color: red; /* Change color to red when clicked */
+       }
+       .cart-dropdown {
+           display: none;
+           position: absolute;
+           background-color: #f9f9f9;
+           min-width: 160px;
+           box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+           z-index: 1;
+           right: 0;
+           margin-right: 5px;
+           width: 50%;
+           text-align: center;
+       }
+       .cart-dropdown a:hover {
+           background-color: #f2f2f2;
+       }
+ 
+       .cart-dropdown.active {
+           display: block;
+       }
+ 
+       .cart-icon i {
+           margin-right: 5px;
+       }
+       #cart-count {
+           position: absolute;
+           top: -5px;
+           right: -1px;
+           background-color: red;
+           color: white;
+           border-radius: 60%;
+           padding: 5px 8px;
+           font-size: 10px;
+           font-weight: bold;
+       }
+ 
+       .line{
+           width: 60%;
+       }
+.btnproduct{
+   color: black;
+}
+.size-option {
+   cursor: pointer;
+   margin-right: 5px;
+   padding: 15px;
+}
+ 
+.selected-size {
+   border-bottom: 2px solid black;
+   border-radius: 5px;
+   padding: 10px;
+}
+#container button {
+   border: none;
+   padding: 10px 10px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   cursor: pointer;
+   border-radius: 4px;
+   color: black;
+   position: relative;
+   left: -2px;
+   margin-top: 40px;
+}
+ 
+.bagimg {
+   width: 35px;
+   height: auto;
+   margin-bottom: 5px;
+   margin-left: 5px;
+ 
+}
+ 
+.cart-item p{
+   font-size: 20px;
+}
+.product-details {
+   flex: 1;
+}
+
+.image-container {
+   margin: 0; 
+   padding: 0; 
+}
+.product-details {
+   margin-right: 200px;
+}
+ 
+
+.product-details {
+   margin-right: 100px; 
+}
+.product-container {
+           display: flex;
+           align-items: center; 
+           margin-left: 0;
+       }
+ 
+       .image-container img {
+           max-width: 120%; 
+           height: auto; 
+       }
+ 
+       .product-details {
+           flex: 1;
+           margin-left: 20px;
+       }
+ 
+       .add-to-cart-btn {
+           white-space: nowrap; 
+           margin-top: 40px; 
+           width: 250px;
+           margin-right: 400px;
+       }
+ 
+       .cart-item img {
+       max-width: 200px;
+       height: auto;
+      
+   }
+       .cart-item-content {
+       display: flex;
+       align-items: center;
+       justify-content: left;
+ 
+   }
+   .product-details {
+       flex: 1;
+       margin-left: 20px;
+ 
+   }
+   .delete {
+       margin-top: 10px;
+   }
+ 
+   .product-details h2 {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 100%;
+   font-size: 20px;
+}
+ 
+.cart-item-content {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+ 
+.product-details {
+   flex: 1;
+}
+ 
+.product-description {
+   margin-right: 10px;
+}
+ 
+.product-price {
+   flex-shrink: 0;
+   text-align: right;
+}
+/* Adjust the positioning of the remove button */
+.cart-item-content {
+   position: relative;
+}
+ 
+.delete {
+   position: absolute;
+   top: 0;
+   left: 350px;
+   margin-top: 220px; /* Add margin if needed */
+   background: none; /* Remove background */
+   border: none; /* Remove border */
+   padding: 0; /* Remove padding */
+   text-decoration: underline; /* Add underline */
+   cursor: pointer; /* Change cursor to pointer */
+}
+.image-container {
+   margin-left: 0; /* Ensure no left margin */
+}
+ 
+.carousel-inner {
+   padding-left: 0; /* Ensure no left padding */
+}
+ 
+ 
+ 
+@media (max-width: 767px) {
+   .product-container {
+       display: flex;
+       flex-direction: column;
+       margin-left: 0;
+       width: 100%
+       
+       
+   }
+ 
+   .product-container img {
+       order: -1; /* Move the image to the top */
+       margin-bottom: 10px; /* Add some space between image and details */
+       margin: 0; /* Reset margin */
+       padding: 0; /* Reset padding */
+   }
+ 
+   .product-details {
+       margin-top: 10px; /* Add some space between image and details */
+   }
+   .product-container img {
+       order: -1; /* Move the image to the top */
+       margin-bottom: 10px; /* Add some space between image and details */
+   }
+ 
+   .description-price {
+       order: 2; /* Move the description and price below */
+   }
+ 
+   .product-container {
+       display: flex;
+       flex-direction: column;
+ 
+   }
+ 
+   .product-container img {
+       order: -1; /* Move the image to the top */
+       margin-bottom: 10px; /* Add some space between image and details */
+       margin: 0;
+       align-items: center;
+   }
+ 
+   .product-details {
+       margin-top: 10px; /* Add some space between image and details */
+       text-align: center; /* Center-align the text */
+   }
+   /* Update the CSS for image responsiveness */
+.imageBag {
+   width: 100%; /* Ensure the image fills the width of its container */
+       height: auto; /* Maintain aspect ratio */
+       margin-bottom: 5px;
+       margin-left: 0; /* Align the image to the left */
+       margin-right: 0; /* Align the image to the right */
+}
+.image-container {
+   margin-left: 0; /* Ensure no left margin */
+}
+ 
+.carousel-inner {
+   padding-left: 0; /* Ensure no left padding */
+   margin-left: 0;
+}
+ 
+.wishlist-icon {
+           position: absolute;
+           top: 40px;
+           left: 430px;
+           transform: translate(-50%, -50%);
+           opacity: 0;
+           transition: opacity 0.3s ease;
+           z-index: 1; /* Ensure the icon is above the image */
+       }
+}
+ 
+ 
+ 
+ 
+ 
+    </style>
+</head>
+<body>
+ 
+ 
+ 
+<!-- Navbar with cart and wishlist -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/html/Homepage.html">
+      <img src="/images/jacquemus-logos-idHdmUIL-k.png" alt="Logo" width="120" class="navbar-brand element-with-space" href="/html/Homepage.html" >
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <button id="exitFullscreenButton" class="exit-fullscreen-button">&times;</button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Product
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="categoryDropdown">
+                    </ul>
+            </li>
+ 
+            <li class="nav-item">
+                <a class="nav-link" href="/html/ContactUs/contactus.html">contact us</a>
+            </li>
+ 
+            <li class="nav-item">
+                <a class="nav-link" href="/html/Account/login.html">account</a>
+            </li>
+   
+            <li class="nav-item">
+                <a class="d-lg-none nav-link mr-3" href="/wishlist">Favorite</a>
+                <a class="d-none d-lg-inline mr-3 nav-link" href="/wishlist">
+                    <img src="/images/Favorite.png" alt="Favorite Icon" width="45" class="d-inline mr-3 nav-link"></a>
+            </li>
+            <div class="cart-icon" id="cart-icon">
+ 
+              
+                <li class="nav-item">
+                    <a class="d-none d-lg-inline mr-3 nav-link" href="#">
+                        <img src="/images/shopping-cart 1cart-icon.png" alt="Cart Icon" width="45" class="d-inline mr-3 nav-link">
+                        <button id="exitFullscreenButton" class="exit-fullscreen-button">&times;</button>
+                    </a>
+                    <!-- <span id="cart-count">0</span> -->
+                </li>
+            </div>
+            <div id="cart-dropdown" class="cart-dropdown">
+                <button id="exitFullscreenButton" class="exit-fullscreen-button">&times;</button>
+                <div>
+                    <h5>SHOPPING CART</h5>
+                    <hr class="line">
+                    <div>
+                     
+                        <div class="cartdrop">
+                            <% let totalPrice = 0; %>
+                            <% cartItems.forEach(cartItem => { %>
+                                <% let productPrice = parseFloat(cartItem.product_price); %>
+                                <% let productQuantity = parseInt(cartItem.product_quantity); %>
+                                <% totalPrice += productPrice * productQuantity; %>
+                                <div class="cart-item">
+                                    <img src="<%= cartItem.product_images1 %>" width="200px" height="260px" alt="Product Image">
+                                    <h2><%= cartItem.product_name %></h2>
+                                    <p><%= cartItem.product_price %></p>
+                                    <p>Size: <%= cartItem.product_size %></p>
+
+
+                                    <!-- <button id="decrementBtn" type="button">-</button>
+                                    <span id="number" style="margin-top: 30px;" data-cart-id="<%= cartItem.cart_id %>"><%= cartItem.product_quantity %></span>
+                                    <button id="incrementBtn" type="button" >+</button> -->
+                                    <div id="container">
+                                        <select class="quantity-select" data-cart-id="<%= cartItem.cart_id %>">
+                                            <% for (let i = 1; i <= 10; i++) { %>
+                                                <option value="<%= i %>" <%= i == cartItem.product_quantity ? 'selected' : '' %>><%= i %></option>
+                                            <% } %>
+                                        </select>
+                                    </div>
+
+
+                                    <form id="removeForm<%= cartItem.cart_id %>" action="/remove_from_cart" method="POST">
+                                        <input type="hidden" name="cart_id" value="<%= cartItem.cart_id %>">
+                                        <button type="button" onclick="removeCartItem('<%= cartItem.cart_id %>')">Remove</button>
+                                    </form>
+                                </div>
+                            <% }); %>
+                            <div>Total: <span id="cart-total">$<%= totalPrice.toFixed(2) %></span><br>VAT Include</div>
+                            <form action="/checkout" method="POST">
+                                <button id="checkout " type="" name="checkout" style="margin-right: 500px;">CHECKOUT</button>
+                            </form>
+                        </div>
+                        
+                        
+            </div>
+                </div>
+            
+            
+        </form>
+ 
+ 
+ 
+ 
+    </ul>
+</div>
+</div>
+</nav>
+<form id="addToCartForm" action="/add_to_cart" method="post">
+<div class="product-container">
+    <img src="<%= product.product_images1 %>" width="530px" height="640px" alt="Product Image">
+    <div class="product-details">
+        <input type="hidden" id="productName" name="product_name" value="<%= product.product_name %>">
+        <input type="hidden" id="productSize" name="product_size" value="">
+        <input type="hidden" id="productQuantity" name="product_quantity" value="0">
+        <input type="hidden" id="productPrice" name="product_price" value="<%= product.product_price %>">
+        <h2><%= product.product_name %></h2>
+        <p><%= product.product_description %></p><hr>
+        <p><%= product.product_price %></p>
+        <p>Size:</p>
+        <p id="size-options">
+            <span class="size-option">XS</span>
+            <span class="size-option">S</span>
+            <span class="size-option">M</span>
+            <span class="size-option">L</span>
+            <span class="size-option">XL</span>
+            <span class="size-option">XXL</span>
+        </p>
+        <div id="container">
+            <button id="decrementBtn" type="button">-</button>
+            <span class="number" style="margin-top: 30px;">0</span>
+            <button id="incrementBtn" type="button">+</button>
+        </div>
+        <button class="btnproduct add-to-cart-btn"><img class="bagimg" src="/images/Bag_alt.png">ADD TO CART</button>
+    </div>
+</div>
+</form>
+ 
+ 
+ 
+   
+ 
+ 
+<section id="intro-section">
+    <form action="/sub" method="post">
+    <div class="container-fluid bg-gray">
+    <h4>Newsletter</h4><br>
+    <p>Sign in to receive our lastest news about collection,
+        products, shows and collaborations</p>
+        <div class="email-input-container">
+            <input type="email" name="email" id="email-input" placeholder="Enter your email">
+            <button id="send-button" style="display: none;"><i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+    </form>
+</section>
+ 
+<footer id="footer">
+<div class="container-fluid">
+    <div class="left-part">
+        <ul>
+        <li><a class="nav-link" href="/html/Product/productall.html">product</a></li>
+        
+        <li>
+            <a class="nav-link" href="/html/ContactUs/contactus.html">contact us</a>
+        </li>
+ 
+        <li>
+            <a class="nav-link" href="/html/Account/login.html">account</a>
+        </li>
+        </ul>
+    </div>
+    <div class="right-part">
+        <ul>
+            <li><i>follow us</i></li>
+            <li><i class="fab fa-twitter"></i><a class="nav-link" href="https://twitter.com/jacquemus"> jacquemus</a></li>
+            <li><i class="fab fa-instagram"></i><a class="nav-link" href="https://www.instagram.com/jacquemus/">jacquemus</a></li>  
+            <li><i class="fas fa-envelope"></i><a class="nav-link" href="mailto:customercare@jacquemus.com">customercare@jacquemus.com</a></li>
+        </ul>
+    </div>
+    <ul>
+    <li><i>© 2024, JACQUEMUS</i></li>
+    </ul>
+</div>
+</footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  
+ 
+<script>
+ 
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the quantity display element
+    const numberElement = document.querySelector('.number');
+ 
+    // Get the increment and decrement buttons
+    const incrementBtn = document.getElementById('incrementBtn');
+    const decrementBtn = document.getElementById('decrementBtn');
+ 
+    // Initialize the quantity
+    let number = parseInt(numberElement.textContent);
+ 
+    // Function to update the displayed quantity
+    function updateNumber() {
+        numberElement.textContent = number;
+        document.getElementById('productQuantity').value = number; // Update product quantity
+    }
+ 
+    // Event listener for the increment button
+    incrementBtn.addEventListener('click', function() {
+        number++;
+        updateNumber();
+    });
+ 
+    // Event listener for the decrement button
+    decrementBtn.addEventListener('click', function() {
+        if (number > 0) {
+            number--;
+            updateNumber();
+        }
+    });
+});
+ 
+ 
+    document.addEventListener("DOMContentLoaded", function() {
+        const cartIcon = document.getElementById('cart-icon');
+        const cartDropdown = document.getElementById('cart-dropdown');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+        const cartCount = document.getElementById('cart-count');
+        
+        cartIcon.addEventListener('click', function() {
+            cartDropdown.classList.toggle('active');
+        });
+ 
+        let itemCount = number;
+ 
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                itemCount++;
+                cartCount.textContent = itemCount;
+                cartCount.style.display = 'block';
+            });
+        });
+                document.addEventListener('click', function(event) {
+            const isClickInsideCart = cartIcon.contains(event.target) || cartDropdown.contains(event.target);
+            if (!isClickInsideCart) {
+                cartDropdown.classList.remove('active');
+            }
+        });
+    });
+</script>
+ 
+ 
+<script>
+ 
+ 
+ 
+</script>
+ 
+<script>
+    const emailInput = document.getElementById('email-input');
+const sendButton = document.getElementById('send-button');
+ 
+emailInput.addEventListener('input', function() {
+if (this.value.includes('@')) {
+sendButton.style.display = 'inline-block';
+} else {
+sendButton.style.display = 'none';
+}
+});
+</script>
+<!-- ห้ามลบบบบ -->
+ 
+<script>
+   
+   
+ 
+   
+ 
+ 
+</script>
+ 
+ 
+ 
+</script>
+ 
+    <!-- Cross sign -->
+    <script>
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const sizeOptions = document.querySelectorAll('.size-option');
+    const numberElement = document.querySelector('.number');
+ 
+    let number = parseInt(numberElement.textContent);
+ 
+    sizeOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            sizeOptions.forEach(opt => opt.classList.remove('selected-size'));
+            this.classList.add('selected-size');
+            document.getElementById('productSize').value = this.textContent;
+            document.getElementById('productQuantity').value = number; // Update product quantity
+        });
+    });
+ 
+    // Function to update the product quantity
+    function updateNumber() {
+        numberElement.textContent = number;
+        document.getElementById('productQuantity').value = number; // Update product quantity
+    }
+ 
+    // Increment button event listener
+    document.getElementById('incrementBtn').addEventListener('click', function() {
+        number++;
+        updateNumber();
+    });
+ 
+    // Decrement button event listener
+    document.getElementById('decrementBtn').addEventListener('click', function() {
+        if (number > 0) {
+            number--;
+            updateNumber();
+        }
+    });
+});
+ 
+ 
+ 
+    </script>
+ 
+    <!-- check -->
+    <script>
+        function removeCartItem(cartId) {
+            
+                document.getElementById("removeForm" + cartId).submit();
+            
+        }
+ 
+ 
+document.addEventListener('DOMContentLoaded', function() {
+      fetch('/categories')
+      .then(response => response.json())
+      .then(categories => {
+          const categoryDropdown = document.getElementById('categoryDropdown');
+          categories.forEach(category => {
+              const categoryItem = document.createElement('li');
+              let categoryHTML = ''; // Define categoryHTML here
+              if (category.category_name === 'trousers & shorts' || category.category_name === 'bag' || category.category_name === 'top' || category.category_name === 'shoes') {
+                  // Construct the HTML string for each category item
+                  if (category.category_name === 'top') {
+                      categoryHTML = `<a class="dropdown-item" href="/Top">Top</a>`;
+                  } else if (category.category_name === 'trousers & shorts') {
+                      categoryHTML = `<a class="dropdown-item" href="/Trousersnshorts">Trousers and Shorts</a>`;
+                  } else if (category.category_name === 'bag') {
+                      categoryHTML = `<a class="dropdown-item" href="/Bag">Bag</a>`;
+                  } else if (category.category_name === 'shoes') {
+                      categoryHTML = `<a class="dropdown-item" href="/Shoes">Shoes</a>`;
+                  }
+                  categoryItem.innerHTML = categoryHTML;
+              } else {
+                  categoryItem.innerHTML = `<a class="dropdown-item" href="/default_category_layout?category_id=${category.category_id}&category_name=${category.category_name}">${category.category_name}</a>`;
+              }
+              categoryDropdown.appendChild(categoryItem);
+          });
+  
+          const viewAllCategoryItem = document.createElement('li');
+          viewAllCategoryItem.innerHTML = `<a class="dropdown-item" href="/productall">View all</a>`;
+          categoryDropdown.appendChild(viewAllCategoryItem);
+      })
+      .catch(error => console.error('Error fetching categories:', error));
+  });
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const numberElement = document.getElementById('number');
+    const incrementBtn = document.getElementById('incrementBtn');
+    const decrementBtn = document.getElementById('decrementBtn');
+ 
+    let number = parseInt(numberElement.textContent);
+ 
+    function updateNumber() {
+        numberElement.textContent = number;
+        document.getElementById('productQuantity').value = number; // Update product quantity
+    }
+ 
+    incrementBtn.addEventListener('click', function() {
+        number++;
+        updateNumber();
+        updateQuantityOnServer(number); // Send update to server
+    });
+ 
+    decrementBtn.addEventListener('click', function() {
+        if (number > 0) {
+            number--;
+            updateNumber();
+            updateQuantityOnServer(number); // Send update to server
+        }
+    });
+ 
+    function updateQuantityOnServer(newQuantity) {
+        const cartId = numberElement.dataset.cartId; // Get cart ID from data attribute
+        fetch('/update_quantity', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                cartId: cartId,
+                newQuantity: newQuantity
+            })
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Quantity updated successfully');
+            } else {
+                console.error('Failed to update quantity:', response.statusText);
+            }
+        })
+        .catch(error => {
+            console.error('Error updating quantity:', error);
+        });
+    }
+});
+ 
+ 
+    </script>
+    
+</body>
+</html>

@@ -33,7 +33,7 @@ connection.connect((err) => {
 // / Set EJS as the view engine
 app.set('view engine', 'ejs');
 // Specify the directory where your views are located
-app.set('views', __dirname + '/view');
+app.set('views', __dirname + '/views');
  
  
 // Define products array
