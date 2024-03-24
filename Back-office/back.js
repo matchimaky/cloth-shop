@@ -15,11 +15,11 @@ app.get('/', (req, res) => {
 });
 
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'suparuthong555',
-  database: 'clothshop'
-});
+    host: 'localhost',
+    user: 'root',
+    password: 'Mtck1234*',
+    database: 'clothshop'
+  });
 
 connection.connect((err) => {
   if (err) {
@@ -460,7 +460,7 @@ app.get('/categories', (req, res) => {
   });
 });
 
-app.listen(7810, () => {
+app.listen(7817, () => {
 console.log(`Server is running on port 7800`);
 });
 

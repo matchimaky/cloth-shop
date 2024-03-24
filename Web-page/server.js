@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'suparuthong555',
+    password: 'Mtck1234*',
     database: 'clothshop'
   });
 
@@ -585,7 +585,7 @@ app.get('/', (req, res) => {
 
 
 // Start the server
-const port = 28000;
+const port = 28007;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
